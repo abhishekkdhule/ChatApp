@@ -1,0 +1,49 @@
+*{
+    background-color: black;
+}
+
+.main {
+    width: 350px;
+    margin: 300px auto;    
+}
+
+input {
+    display: none;
+    width: 345px;
+    height: 30px;
+    border: none;
+    background-color: rgb(238, 238, 238);
+}
+
+.upper_div {
+    margin-bottom: 10px;
+}
+
+.lower_div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.create_room_button {
+    cursor: pointer;
+    width: 140px;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    color: white;
+    background-color: greenyellow;
+    box-shadow: 0 0 15px 3px greenyellow;
+    transition-duration: 1s;
+}
+
+.join_room_button {
+    cursor: pointer;
+    width: 140px;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    color: white;
+    background-color: greenyellow;
+    box-shadow: 0 0 15px 3px greenyellow;
+    transition-duration: 1s;
+}
