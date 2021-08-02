@@ -8,7 +8,8 @@
 }
 
 input {
-    display: none;
+    /* display: none; */
+    outline: none;
     width: 345px;
     height: 30px;
     border: none;
@@ -27,6 +28,9 @@ input {
 .create_room_button {
     cursor: pointer;
     width: 140px;
+    overflow: hidden;
+    white-space: nowrap; 
+    text-overflow: clip;
     font-weight: bold;
     padding: 10px;
     border: none;
@@ -35,6 +39,10 @@ input {
     box-shadow: 0 0 15px 3px greenyellow;
     transition-duration: 1s;
 }
+/* 
+.create_room_button:hover {
+    width: 345px;
+} */
 
 .join_room_button {
     cursor: pointer;
