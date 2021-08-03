@@ -1,57 +1,118 @@
-*{
-    background-color: black;
+* {
+  background-color: black;
 }
 
 .main {
-    width: 350px;
-    margin: 300px auto;    
+  width: 350px;
+  height: 300px;
+  margin: 300px auto;
+  /* background-color: red; */
 }
 
 input {
-    /* display: none; */
-    outline: none;
-    width: 345px;
-    height: 30px;
-    border: none;
-    background-color: rgb(238, 238, 238);
+  outline: none;
+  width: 99%;
+  height: 30px;
+  border: none;
+  background-color: rgb(238, 238, 238);
+  margin-top: 10px;
+
 }
 
 .upper_div {
+    margin: 0 auto;
+    width: 100%;
+    animation: input-animation 1.5s 1 forwards;
     margin-bottom: 10px;
 }
 
+@keyframes input-animation {
+  from {
+    width: 0px;
+  }
+  to {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}
+
 .lower_div {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .create_room_button {
-    cursor: pointer;
-    width: 140px;
-    overflow: hidden;
-    white-space: nowrap; 
-    text-overflow: clip;
-    font-weight: bold;
-    padding: 10px;
-    border: none;
-    color: white;
-    background-color: greenyellow;
-    box-shadow: 0 0 15px 3px greenyellow;
-    transition-duration: 1s;
+  cursor: pointer;
+  width: 140px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  color: white;
+  background-color: rgb(0, 195, 255);
+  box-shadow: 0 0 15px 3px rgb(0, 195, 255);
+  transition-duration: 1s;
+  /* animation: btn-animaition 2s 1 forwards ; */
 }
-/* 
-.create_room_button:hover {
-    width: 345px;
-} */
+
+.close_btn {
+  animation: btn-animaition 1s 1 forwards;
+}
+@keyframes btn-animaition {
+  from {
+    width: 140px;
+  }
+  to {
+    width: 0%;
+    padding-left: 0;
+    padding-right: 0;
+    box-shadow: none;
+  }
+}
+.join_room_button:hover {
+  width: 10px;
+}
 
 .join_room_button {
-    cursor: pointer;
-    width: 140px;
-    font-weight: bold;
-    padding: 10px;
-    border: none;
-    color: white;
-    background-color: greenyellow;
-    box-shadow: 0 0 15px 3px greenyellow;
-    transition-duration: 1s;
+  cursor: pointer;
+  width: 140px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  color: white;
+  background-color: greenyellow;
+  box-shadow: 0 0 15px 3px greenyellow;
+}
+
+.initial_display {
+  display: none;
+}
+
+.enter_btn {
+  width: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+  font-weight: bold;
+  padding: 10px;
+  color: white;
+  border: none;
+  background-color: rgb(0, 195, 255);
+  box-shadow: 0 0 15px 3px rgb(0, 195, 255);
+  animation: enter-btn-animaition 1.5s 1 forwards;
+}
+@keyframes enter-btn-animaition {
+  from {
+    width: 0%;
+    padding: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
