@@ -10,10 +10,14 @@ import Chat from "./Chat";
 function App() {
   return (
     <>
+    {/* <Homepage/> */}
     <Router>
       <Switch>
           <Route path="/chat">
             <Chat />
+          </Route>
+          <Route path="">
+            <Homepage />
           </Route>
         </Switch>
     </Router>

@@ -1,6 +1,12 @@
+*{
+    /* background-color: white; */
+}
 .chat {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
     margin: 0 auto;
     width: 450px;
-    height: 550px;
+    height: 400px;
     background-color: rgb(243, 243, 243);
 }
