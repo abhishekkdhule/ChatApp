@@ -2,10 +2,19 @@
     align-self: flex-start;
     margin-top: 20px;
     width: 80%;
-    background-color: rgb(171, 245, 235);
+    background-color: #d4b3eb;
     border-radius: 10px;
     padding-left: 5px;
 }
+
+input {
+    bottom: 0;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    width: 99%;
+}
+
 h6, p {
 
     display: inline-block;

@@ -14,6 +14,7 @@ function Chat() {
                     )
                 } )
             }
+            <input type="text" value="Your message!"/>
             </div>
         </>
     )
