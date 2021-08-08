@@ -7,7 +7,7 @@
     padding-left: 5px;
 }
 
-input {
+.chatText {
     bottom: 0;
     border-radius: 50px;
     border: none;
