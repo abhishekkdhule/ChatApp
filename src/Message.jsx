@@ -6,8 +6,8 @@ function Message(props) {
     return (
         <>
             <div className="main mt-4">
-                <h6 className="m-0">Abhishek</h6><br/>
-                <p className="m-0">{props.message}</p>
+                <h6 className="m-0">{props.message.name}</h6><br/>
+                <p className="m-0">{props.message.message}</p>
             </div>
         </>
     )
