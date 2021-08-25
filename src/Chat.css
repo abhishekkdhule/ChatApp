@@ -1,6 +1,13 @@
 *{
     /* background-color: white; */
 }
+
+.main_chat {
+    margin: 0 auto;
+    position: relative;
+    width: 450px;
+}
+
 .chat {
     display: flex;
     flex-direction: column;
