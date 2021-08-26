@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import styles from './Homepage.module.css'
-import {firebase,db} from './firebase';
-import { Redirect,useHistory  } from 'react-router';
+import {firebase, db} from './firebase';
+import { Redirect, useHistory  } from 'react-router';
+
 function Homepage() {
 
     const [roomId, setRoomId] = useState('')
@@ -10,21 +11,46 @@ function Homepage() {
     const [hompageStyles, sethompageStyles] = useState({input_box:styles.initial_display ,closingBtn:styles.create_room_button, openingBtn:styles.initial_display})
     const history = useHistory()
     
-    const createRoom = (e) =>{
+    const createRoom = (e) => {
         sethompageStyles({input_box:styles.upper_div ,closingBtn: styles.create_room_button + " " + styles.close_btn, openingBtn: styles.enter_btn})
     }
 
-    const joinRoom = () =>{
-
+    const joinRoom = () => {
+        sethompageStyles({input_box:styles.upper_div ,closingBtn: styles.create_room_button + " " + styles.close_btn, openingBtn: styles.enter_btn})
     }
 
-    const enterRoom = () =>{
-        db.collection("rooms").add({
-            room_id: roomId,
-            messages: []
-        })
+    const enterRoom = () => {
+        // let room_id = localStorage.getItem("room_id")
+        
+        const roomRef = db.collection('rooms').doc(roomId)
+        
+        
+        roomRef.get()
+        .then((docSnapshot) => {
+            if (docSnapshot.exists) {
+                roomRef.onSnapshot((doc) => {
+                // do stuff with the data
+                localStorage.setItem("room_id",doc.id)
+                setRoomId(doc.id)
+            });
+            } else {
+                db.collection("rooms").add({
+                        room_id: roomId,
+                        messages: []
+                    })
+                    .then((docRef) =>{
+                        localStorage.setItem("room_id",docRef.id)
+                        setRoomId(docRef.id)
+                    })
+            }
+        });
+            
+        // db.collection("rooms").add({
+        //     room_id: roomId,
+        //     messages: []
+        // })
+        // .then((docRef) => localStorage.setItem("room_id",docRef.id))
         localStorage.setItem("name",username)
-        localStorage.setItem("room_id",roomId)
         history.push("/chat")
     }
     return (
@@ -42,7 +68,7 @@ function Homepage() {
                     <button type="submit" className={hompageStyles.openingBtn} onClick={(e)=>enterRoom(e)}>
                         ENTER
                     </button>
-                    <button type="button" className={hompageStyles.closingBtn} onClick={()=>joinRoom()}>
+                    <button type="button" className={hompageStyles.closingBtn} onClick={(e)=>joinRoom(e.target)}>
                         JOIN ROOM
                     </button>
                 </div>

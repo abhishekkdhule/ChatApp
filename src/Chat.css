@@ -3,17 +3,29 @@
 }
 
 .main_chat {
+    padding-bottom: 30px;
     margin: 0 auto;
     position: relative;
     width: 450px;
 }
 
 .chat {
+    margin-top: 20px;
+    padding: 5px;
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
+    overflow: auto;
     margin: 0 auto;
     width: 450px;
-    height: 400px;
-    background-color: #CEE9FF;
+    height: 430px;
+    background-color: #504c4c;
+}
+
+.chatText {
+    position: absolute;
+    bottom:0 ;
+    /* border-radius: 50px; */
+    border: none;
+    outline: none;
+    width: 450px;
 }

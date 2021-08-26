@@ -1,0 +1,29 @@
+.main {
+    align-self: flex-start;
+    margin-top: 20px;
+    max-width: 80%;
+    background-color: #ececec;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+    box-shadow: 0 0 8px 0px rgb(255, 255, 255);
+}
+
+.main_self {
+    align-self: flex-end;
+    margin-top: 20px;
+    max-width: 80%;
+    background-color: #ececec;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+    box-shadow: 0 0 8px 0px rgb(255, 255, 255);
+}
+
+
+
+h6, p {
+    display: inline-block;
+}
