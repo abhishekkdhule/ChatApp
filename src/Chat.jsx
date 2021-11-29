@@ -3,6 +3,7 @@ import Message from './Message';
 import './Chat.css'
 import {firebase,db} from './firebase';
 
+
 function Chat() {
     const [messages, setMessages] = useState([])
     const [newMessage, setNewMessage] = useState("")
@@ -11,33 +12,37 @@ function Chat() {
     useEffect(()=>{    
         setUserDetails({"name": localStorage.getItem("name"),
                         "room_id": localStorage.getItem("room_id")})
-        console.log(userdetails.room_id)
-        db.collection("rooms").doc(localStorage.getItem("room_id")).onSnapshot((doc)=>{
+        let docRef = db.collection("rooms").doc(localStorage.getItem("room_id"))
+        docRef.get().then((doc) => {
             setMessages(doc.data().messages)
         })
-    },[])
-    
+    },[])    
 
     const sendMessage = (e) =>{
-        db.collection("rooms").doc(userdetails.room_id).update({"messages": [...messages, {"name":userdetails.name, "message":newMessage}]})
-        setMessages([...messages, {"name":userdetails.name, "message":newMessage}])
-        setNewMessage("")
-        
         e.preventDefault()
-        let ele = document.getElementsByClassName('chat')
+        if(newMessage.length !== 0) {
+            db.collection("rooms").doc(userdetails.room_id)
+            .onSnapshot((doc) => {
+                setMessages(doc.data().messages)
+            })
+            db.collection("rooms").doc(userdetails.room_id).update({"messages": [{"name":userdetails.name, "message":newMessage}, ...messages]})
+            setMessages([{"name":userdetails.name, "message":newMessage}, ...messages])
+            setNewMessage("")
+    
+            let ele = document.getElementsByClassName('chat')
+        }
         // ele.scrollIntoView(false)
-
     }
 
     return (
         <>
-            <h4>Room</h4>
+                <h4 className="text-center text-white mt-4">Room ID: <small>{userdetails.room_id}</small></h4>
             <div className="main_chat">
                 <div className="chat">
                 {
                     messages.map((m,messages) => {
                         return (
-                            <Message message={m}/>
+                            <Message message={m.message} name={m.name}/>
                         )
                     } )
                 }

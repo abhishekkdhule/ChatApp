@@ -1,24 +1,47 @@
 *{
     /* background-color: white; */
+  
 }
 
 .main_chat {
     padding-bottom: 30px;
-    margin: 0 auto;
+    margin: 20px auto;
     position: relative;
     width: 450px;
+}
+
+@media screen and (max-width: 600px) {
+    .main_chat {
+ 
+        margin: 80px auto;
+        width: 100vw;
+    }
+    .chat {
+        width: 100%;
+    }
+
 }
 
 .chat {
     margin-top: 20px;
     padding: 5px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     overflow: auto;
     margin: 0 auto;
     width: 450px;
-    height: 430px;
+    height: 80vh;
     background-color: #504c4c;
+}
+
+.chat::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.char {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .chatText {

@@ -18,6 +18,10 @@ input {
 
 }
 
+.room_id {
+  display: none;
+}
+
 .upper_div {
     margin: 0 auto;
     width: 100%;
